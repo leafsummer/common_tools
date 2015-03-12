@@ -1,5 +1,17 @@
 @echo off
-if "%1"=="start" (
+if '%1'=='start' (
+call :function1
+) 
+if '%1'=='stop' (
+call :function2
+)
+if '%1'=='restart' (
+call :function2
+call :function1
+)
+exit /b 0
+
+:function1
 REM Windows 下无效
 REM set PHP_FCGI_CHILDREN=5
 
@@ -11,10 +23,11 @@ RunHiddenConsole E:\php-5.6.6-Win32-VC11-x64\php-cgi.exe -b 127.0.0.1:9000 -c E:
  
 echo Starting nginx...
 RunHiddenConsole E:\nginx-1.6.2\nginx.exe -p E:\nginx-1.6.2\
-) 
-if "%1"=="stop" (
+exit /b 0
+
+:function2
 echo Stopping nginx...  
 taskkill /F /IM nginx.exe > nul
 echo Stopping PHP FastCGI...
 taskkill /F /IM php-cgi.exe > nul
-)
+goto :eof
