@@ -1,0 +1,19 @@
+<snippet>
+    <content><![CDATA[
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# -----------------------------------------------------
+#  FileName    :    $TM_FILENAME
+#  Author      :    wuqingfeng@
+#  Project     :    ${1:wsp.report}
+#  Date        :    ${2:2013-08-09}
+#  Description :    ${3:My Description}
+# -----------------------------------------------------
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>phd</tabTrigger>
+    <description>custom-header</description>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.python</scope>
+</snippet>
