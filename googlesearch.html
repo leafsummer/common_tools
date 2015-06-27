@@ -1,0 +1,291 @@
+	<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Google</title>
+<link rel="stylesheet" href="http://dn-gusou.qbox.me/stylesheets/style.css">
+<link rel="icon" href="http://dn-gusou.qbox.me/images/favicon.ico">
+<style>
+.form_box .s_text {
+    float: none;
+    line-height: normal;
+    height: 28px;
+}
+
+.s_submit {
+    height: 32px;
+}
+
+.content {
+    visibility: hidden;
+}
+
+.result_stats {
+    width: 600px;
+}
+
+.result_stats b {
+    font-style: normal;
+    font-weight: normal;
+}
+
+.search_result b {
+    color: #dd4b39;
+    font-style: normal;
+    font-weight: normal;
+}
+
+.navcnt table {
+    margin-top: 10px;
+}
+
+.min_content br {
+    display: none;
+}
+
+#header_bar {
+    width: 800px;
+}
+
+#loading {
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    visibility: hidden;
+}
+
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+    <div>
+        <div class="header-bar">
+            <div id="header_bar">
+                <div class="logo">
+                    <a href=""><img src="http://dn-gusou.qbox.me/images/nav_logo.png" alt="logo"></a>
+                </div>
+                <div class="form_box">
+                    <form id="search_form">
+                        <input class="s_text" type="text" name="q" placeholder="search" autocomplete="off" required>
+                        <input class="s_submit m-button" value="搜 索" type="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="content" id="content">
+            <div class="result_stats" id="result_stats"></div>
+            <div class="search_result" id="search_result"></div>
+            <div class="navcnt" id="navcnt"></div>
+        </div>
+    </div>
+</div>
+<script>
+var options = {
+    q: "",
+    idx: 1,
+    start: 0
+};
+
+var google = {
+    cache: {},
+    td: function(a, b, data) {
+        var r, regex;
+        var t = data.d, arr = [];
+
+        regex = /<a class="l" href="(.+?)".+?>(.+?)<\/a>.+?<span class="s">(.+?)<\/span><br><span class="a">(.+?)<\/span>/g;
+        r = regex.exec(t);
+        while (r) {
+            var record = {
+                href: r[1],
+                title: r[2],
+                content: r[3],
+                url: r[4]
+            };
+            arr.push(record);
+            r = regex.exec(t);
+        }
+
+        var i = 0, html = [];
+        for (i = 0; i < arr.length; i++) {
+            html.push('<div class="s_r shadow"><a target="_blank" class="title" href="' + arr[i].href);
+            html.push('" name="r_url">' + arr[i].title + '</a><div class="visible_url">' + arr[i].url);
+            html.push('</div><span class="min_content">' + arr[i].content + '</span></div>');
+        }
+
+        var start, end, scripts;
+        if (options.idx <= 6) {
+            start = 1;
+            end = 10;
+        } else {
+            start = options.idx - 5;
+            end = options.idx + 4;
+        }
+
+        scrollTo(0, 0);
+        $("result_stats").innerHTML = "";
+        $("search_result").innerHTML = "";
+        $("navcnt").innerHTML = "";
+
+        if (arr.length > 0) {
+            regex = /<td nowrap align="right"><font size="-1">(.+?)<\/font><\/td>/;
+            r = regex.exec(t);
+            $("result_stats").innerHTML = r[1];
+            $("search_result").innerHTML = html.join("");
+            html = [];
+            html.push('<div id="loading"><img src="http://www.jiankongbao.com/images/ajax_loader5.gif" alt="loading"></div>');
+            html.push('<table><tbody><tr valign="top"><td class="b navend">');
+            html.push('<a class="pn" href="" id="page_prev" style="text-decoration:none;text-align:left">');
+            html.push('<span class="csb" style="background-position:0 0;width:53px"></span>');
+            html.push('<span class="txt" style="display:block">上一页</span></a></td>');
+            for (i = start; i <= end; i++) {
+                if (options.idx === i) {
+                    html.push('<td class="fl cur"><a class="fl cur" id="page_' + i + '">');
+                    html.push('<span class="csb" style="background-position:-53px 0;background-size:167px;width:20px"></span> ');
+                    html.push(i + '</a></td>');
+                } else {
+                    html.push('<td><a class="fl" id="page_' + i + '"href=""><span class="csb pcommon"></span> ' + i + '</a></td>');
+                }
+            }
+            html.push('<td class="b navend"><a class="pn" href="" id="page_next" style="text-decoration:none;text-align:left">');
+            html.push('<span class="csb" style="background-position:-96px 0;background-size:167px;width:71px"></span>');
+            html.push('<span class="txt" style="display:block;margin-left:53px">下一页</span></a></td></tr></tbody></table>');
+            $("navcnt").innerHTML = html.join("");
+            attachClickEvent();
+        } else {
+            regex = /<div id="res">(.+?)<\/div>/;
+            r = regex.exec(t);
+            $("search_result").innerHTML = r[1];
+        }
+
+        var key = "A_" + utf8hexEncode(options.q) + "_" + options.start;
+        google.cache[key] = $("content").innerHTML;
+
+        scripts = document.head.getElementsByTagName("script");
+        for (i = 0; i < scripts.length; i++) {
+            scripts[i].parentNode.removeChild(scripts[i]);
+        }
+    }
+};
+
+function $(id) {
+    return document.getElementById(id);
+}
+
+function utf8hexEncode(str) {
+    function pad(hex, n) {
+        var len = hex.length;
+        while (len < n) {
+            hex = "0" + hex;
+            len++;
+        }
+        return hex;
+    }
+
+    var ch, arr = [];
+    for (var i = 0; i < str.length; i++) {
+        ch = str.charCodeAt(i);
+        if (ch <= 0xFF) {
+            arr.push(pad(ch.toString(16), 2));
+        } else {
+            arr.push(encodeURI(str.charAt(i)).replace(/%/g, ''));
+        }
+    }
+    return arr.join("").toUpperCase();
+}
+
+function pageClick(idx) {
+    return function(e) {
+        e.preventDefault();
+        search(options.q, idx * 10 - 10);
+    };
+}
+
+function attachClickEvent() {
+    var i, start, end;
+    if ($("navcnt").innerHTML === "") {
+        return;
+    }
+
+    if (options.idx <= 6) {
+        start = 1;
+        end = 10;
+    } else {
+        start = options.idx - 5;
+        end = options.idx + 4;
+    }
+
+    $("page_prev").onclick = function(e) {
+        e.preventDefault();
+        search(options.q, options.start - 10);
+    };
+    $("page_next").onclick = function(e) {
+        e.preventDefault();
+        search(options.q, options.start + 10);
+    };
+    for (i = start; i <= end; i++) {
+        if (options.idx === i) {
+            continue;
+        }
+        $("page_" + i).onclick = pageClick(i);
+    }
+}
+
+function search(q, start) {
+    start = typeof start === "number" ? start : 0;
+    start = start > 0 ? start : 0;
+    options.start = start;
+    options.idx = options.start / 10 + 1;
+    var key = "A_" + utf8hexEncode(q) + "_" + start;
+    if (google.cache[key] !== undefined) {
+        scrollTo(0, 0);
+        $("content").innerHTML = google.cache[key];
+        attachClickEvent();
+        return;
+    }
+
+    var loading = $("loading");
+    if (loading !== null) {
+        loading.style.visibility = "visible";
+    }
+
+    var apiUrl = google.url + "/search?output=custom&tch=4&fp=7912f7472892ef90&hl=zh-CN";
+    var url = apiUrl + "&q=" + q + "&start=" + start;
+    var script = document.createElement("script");
+    script.src = url;
+    document.head.appendChild(script);
+}
+
+function init() {
+    var form = $("search_form");
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        google.cache = {};
+        options.q = this.q.value;
+        options.start = 0;
+        $("result_stats").innerHTML = "";
+        $("search_result").innerHTML = '<img src="http://www.jiankongbao.com/images/ajax_loader5.gif" alt="loading">';
+        $("navcnt").innerHTML = "";
+        search(options.q, options.start);
+        $("content").style.visibility = "visible";
+    };
+
+    google.url = "https://google.kfd.me"
+
+    if (window.localStorage) {
+        var google_url = localStorage.getItem("google_url");
+        if (google_url) {
+            google.url = google_url;
+        }
+    }
+}
+
+init();
+</script>
+</body>
+</html>
+
+    	<style></style>
+	    		<script></script>
+	
+<!-- Generated by RunJS (Fri Jun 26 23:15:24 CST 2015) 2ms -->
