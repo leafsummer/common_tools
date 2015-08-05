@@ -1,4 +1,5 @@
-syn on                      "语法支持
+syntax enable
+syntax on                      "语法支持
 
 filetype plugin indent on
 autocmd FileType python setlocal et sta sw=4 sts=4
@@ -11,6 +12,9 @@ set showmatch               "代码匹配
 set expandtab               "以下三个配置配合使用，设置tab和缩进空格数
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
+set cindent
+set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 "set cursorline              "为光标所在行加下划线
 set number                  "显示行号
 set autoread                "文件在Vim之外修改过，自动重新读入
@@ -33,6 +37,9 @@ nnoremap <leader>t : tabe<CR>
 "powerline{
 set guifont=PowerlineSymbols\ for\ Powerline
 set nocompatible
+colorscheme desert
 set t_Co=256
+set t_Sb=^[[4%dm
+set t_Sf=^[[3%dm
 let g:Powerline_symbols = 'fancy'
 "}
