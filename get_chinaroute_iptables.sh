@@ -16,7 +16,7 @@ echo "iptables -t nat -A REDSOCKS -d 207.46.135.99 -j RETURN" >> /tmp/iptables.s
 echo "iptables -t nat -A REDSOCKS -p udp --dport 53 -j REDIRECT --to-ports 10053" >> /tmp/iptables.sh
 for i in `cat /tmp/chinadns_chnroute.txt`
 do
-echo "iptables -A INPUT -s $i -j ACCEPT" >> /tmp/iptables.sh
+echo "iptables -t nat -A REDSOCKS -d $i -j RETURN" >> /tmp/iptables.sh
 done
 echo "iptables -t nat -A REDSOCKS -s 10.67.2.64/32 -p tcp --dport 80 -j REDIRECT --to-ports 12345" >> /tmp/iptables.sh
 echo "iptables -t nat -A REDSOCKS -s 10.67.2.64/32 -p tcp --dport 443 -j REDIRECT --to-ports 12345" >> /tmp/iptables.sh
