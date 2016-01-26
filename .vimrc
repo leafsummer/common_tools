@@ -31,6 +31,9 @@ let mapleader = ','
 nnoremap <C-l> gt
 nnoremap <C-h> gT
 nnoremap <leader>t : tabe<CR>
+nnoremap <F2> :set invpaste paste?<CR>
+set pastetoggle=<F2>
+set showmode
 
 "conf for plugins {{ 插件相关的配置
 "状态栏的配置 
