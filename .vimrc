@@ -40,8 +40,6 @@ set showmode
 "powerline{
 set guifont=PowerlineSymbols\ for\ Powerline
 set nocompatible
-syntax enable
-syntax on                      "语法支持
 
 filetype plugin indent on
 autocmd FileType python setlocal et sta sw=4 sts=4
