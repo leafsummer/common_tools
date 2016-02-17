@@ -62,6 +62,7 @@ set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 "set cursorline              "为光标所在行加下划线
 set number                  "显示行号
 set autoread                "文件在Vim之外修改过，自动重新读入
+set mouse=a
 
 "set ignorecase              "检索时忽略大小写
 set fileencodings=uft-8,gbk "使用utf-8或gbk打开文件
@@ -82,11 +83,8 @@ set showmode
 "conf for plugins {{ 插件相关的配置
 "状态栏的配置 
 "powerline{
-set guifont=PowerlineSymbols\ for\ Powerline
+"set guifont=PowerlineSymbols\ for\ Powerline
 "set nocompatible
-
-"filetype plugin indent on
-autocmd FileType python setlocal et sta sw=4 sts=4
 
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
 let mapleader = ',' 
@@ -97,14 +95,14 @@ nnoremap <leader>t : tabe<CR>
 "conf for plugins {{ 插件相关的配置
 "状态栏的配置 
 "powerline{
-set guifont=PowerlineSymbols\ for\ Powerline
+"set guifont=PowerlineSymbols\ for\ Powerline
 colorscheme molokai
 "colorscheme desert
-set guifont=Monaco\ 11
+set guifont=Monaco\ 12
 set t_Co=256
 set t_Sb=^[[4%dm
 set t_Sf=^[[3%dm
-let g:Powerline_symbols = 'fancy'
+"let g:Powerline_symbols = 'fancy'
 "}
 
 
