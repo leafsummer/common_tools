@@ -1,7 +1,49 @@
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+"let Vundle manage Vundle
+"Bundle 'gmarik/vundle'
+"
+"my Bundle here:
+"
+" original repos on github
+"
+Bundle 'scrooloose/nerdtree'
+let NERDTreeWinPos='right'
+let NERDTreeWinSize=20
+let NERDTreeChDirMode=1
+"F5 打开nerdtree
+map <F5> :NERDTreeTabsToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
+
+Bundle 'jistr/vim-nerdtree-tabs'
+
+"..................................
+" vim-scripts repos
+"
+
+"..................................
+" non github repos
+" Bundle 'git://git.wincent.com/command-t.git'
+"......................................
+filetype plugin indent on
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+
+
+
 syntax enable
 syntax on                      "语法支持
 
-filetype plugin indent on
+"filetype plugin indent on
 autocmd FileType python setlocal et sta sw=4 sts=4
 
 "common conf {{             通用配置
@@ -39,9 +81,9 @@ set showmode
 "状态栏的配置 
 "powerline{
 set guifont=PowerlineSymbols\ for\ Powerline
-set nocompatible
+"set nocompatible
 
-filetype plugin indent on
+"filetype plugin indent on
 autocmd FileType python setlocal et sta sw=4 sts=4
 
 "common conf {{             通用配置
@@ -62,7 +104,7 @@ set autoread                "文件在Vim之外修改过，自动重新读入
 "set ignorecase              "检索时忽略大小写
 set fileencodings=uft-8,gbk "使用utf-8或gbk打开文件
 set hls                     "检索时高亮显示匹配项
-set helplang=cn             "帮助系统设置为中文
+"set helplang=cn             "帮助系统设置为中文
 set foldmethod=syntax       "代码折叠
 "}}
 
@@ -91,3 +133,6 @@ set t_Sb=^[[4%dm
 set t_Sf=^[[3%dm
 let g:Powerline_symbols = 'fancy'
 "}
+
+
+
