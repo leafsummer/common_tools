@@ -26,6 +26,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeT
 
 Bundle 'jistr/vim-nerdtree-tabs'
 "Bundle 'klen/python-mode'
+
+Bundle 'vim-airline/vim-airline'
+Bundle 'vim-airline/vim-airline-themes'
+" AirLine             彩色状态栏
+let g:airline_theme           = 'badwolf'      " 设置主题
+let g:airline_powerline_fonts = 0              " 关闭自定义字体
+let g:airline#extensions#tabline#enabled = 1   "automatically displays all buffers when there's only one tab open
+let g:airline#extensions#whitespace#enabled = 0 "enable/disable detection of whitespace errors
+let g:airline#extensions#tabline#buffer_nr_show = 1 "configure whether buffer numbers should be shown
 "..................................
 " vim-scripts repos
 "
@@ -94,6 +103,7 @@ au BufRead,BufNewFile *.ini      setlocal ft=dosini
 set nu!                      "显示行号
 set autoread                 "文件在Vim之外修改过，自动重新读入
 set ruler                    "右下角显示光标位置的状态行
+"set relativenumber           " 开启相对行号
 "set mouse=a
 "set ignorecase              "检索时忽略大小写
 set incsearch                "开启实时搜索功能
@@ -105,7 +115,7 @@ set helplang=cn              "帮助系统设置为中文
 "set foldmethod=syntax        "代码折叠
 set foldmethod=indent        " 选择代码折叠类型
 set foldlevel=100            " 禁止自动折叠
-"set laststatus=2             " 开启状态栏信息
+set laststatus=2             " 开启状态栏信息
 "set cmdheight=2              " 命令行的高度，默认为1，这里设为2
 "set nobackup                 " 不生成备份文件
 "set noswapfile               " 不生成交换文件
@@ -144,6 +154,10 @@ let mapleader = ','
 nnoremap <C-l> gt
 nnoremap <C-h> gT
 nnoremap <leader>t : tabe<CR>
+
+"设置切换Buffer快捷键"
+nnoremap <C-N> :bn<CR>
+nnoremap <C-P> :bp<CR>
 
 "conf for plugins {{ 插件相关的配置
 "状态栏的配置 
