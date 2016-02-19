@@ -1,2 +1,3 @@
 #!/bin/sh
+#sumamry the run time of program
 /usr/bin/time -f '%Uu %Ss %er %MkB %C' "$@"
