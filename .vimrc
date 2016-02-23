@@ -209,7 +209,7 @@ au BufRead,BufNewFile http*.conf setlocal ft=apache
 au BufRead,BufNewFile nginx.conf setlocal ft=nginx
 au BufRead,BufNewFile *.ini      setlocal ft=dosini
 
-"set cursorline              "为光标所在行加下划线
+set backspace=2              " 设置退格键可用
 set nu!                      "显示行号
 set autoread                 "文件在Vim之外修改过，自动重新读入
 set ruler                    "右下角显示光标位置的状态行
@@ -271,12 +271,6 @@ nnoremap <leader>t : tabe<CR>
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
-
-"conf for plugins {{ 插件相关的配置
-"状态栏的配置 
-"powerline{
-"set guifont=PowerlineSymbols\ for\ Powerline
-"set nocompatible
 
 " ======= 自定义快捷键 ======= "
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
@@ -394,6 +388,7 @@ imap <c-u> <c-x><c-o>
 "conf for plugins {{ 插件相关的配置
 "状态栏的配置 
 "powerline{
+"设置字体
 "set guifont=PowerlineSymbols\ for\ Powerline
 colorscheme molokai
 "colorscheme desert
