@@ -46,7 +46,7 @@ if __name__ == "__main__":
 	n = 4000000
 	start = time.time()
 	if n < 2:
-		print []
+        print []
 	if n == 2:
 		print [2]
 	s = range(3, n, 2)

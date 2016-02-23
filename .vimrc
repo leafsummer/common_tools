@@ -17,15 +17,20 @@ let NERDTreeWinSize=20
 let NERDTreeChDirMode=1
 " NERDTree            树形文件浏览器
 let g:NERDTreeShowHidden = 1                   " 显示隐藏文件
-
-" NERD_commenter      注释处理插件
-let NERDSpaceDelims = 1                        " 自动添加前置空格
 "F5 打开nerdtree
 map <F5> :NERDTreeTabsToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
 
 Bundle 'jistr/vim-nerdtree-tabs'
-"Bundle 'klen/python-mode'
+
+" \cc                        --添加行注释             [NERD_commenter]
+" \cm                        --添加块注释             [NERD_commenter]
+" \cs                        --添加SexStyle块注释     [NERD_commenter]
+" \cu                        --取消注释               [NERD_commenter]
+" [count] \cu or \cm or \ci
+Bundle 'scrooloose/nerdcommenter'
+" NERD_commenter      注释处理插件
+let NERDSpaceDelims = 1                        " 自动添加前置空格
 
 Bundle 'vim-airline/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
@@ -36,22 +41,86 @@ let g:airline#extensions#tabline#enabled = 1   "automatically displays all buffe
 let g:airline#extensions#whitespace#enabled = 0 "enable/disable detection of whitespace errors
 let g:airline#extensions#tabline#buffer_nr_show = 1 "configure whether buffer numbers should be shown
 
-Bundle 'hdima/python-syntax'
+" \be                        --打开BufExplorer窗口    [独立显示] [Normal模式可用]
+" \bs                        --打开BufExplorer窗口    [分割显示] [Normal模式可用]
+" \bv                        --打开BufExplorer窗口    [边栏显示] [Normal模式可用]
+Bundle 'jlanzarotta/bufexplorer'
 
+" ---------- 格式化命令 ----------
+"
+" ==                         --缩进当前行
+" =G                         --缩进直到文件结尾
+" gg=G                       --缩进整个文件
+" 行号G=行号G                --缩进指定区间
+
+" u [小写]                   --单步复原               [非插入模式]
+" U [大写]                   --整行复原               [非插入模式]
+" Ctrl + R                   --反撤消                 [非插入模式]
 Bundle 'godlygeek/tabular'
-" \bb                 按=号对齐代码 [Tabular插件]
-nmap <leader>bb :Tab /=<cr>
-" \bn                 自定义对齐    [Tabular插件]
-nmap <leader>bn :Tab /
+
+" 语言插件
+Bundle 'hdima/python-syntax'
+"Bundle 'klen/python-mode'
+Bundle 'Glench/Vim-Jinja2-Syntax'
+Bundle 'digitaltoad/vim-jade'
+Bundle 'StanAngeloff/php.vim'
+Bundle '2072/PHP-Indenting-for-VIm'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'joefromct/vim-newlisp.vim'
+Bundle 'keith/swift.vim'
+Bundle 'vim-perl/vim-perl'
+
+Bundle 'octol/vim-cpp-enhanced-highlight'
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
+
+Bundle 'fatih/vim-go'
 
 Bundle 'plasticboy/vim-markdown'
+let g:vim_markdown_frontmatter=1
+
 Bundle 'elzr/vim-json'
 Bundle 'jason0x43/vim-js-indent'
 Bundle 'pangloss/vim-javascript'
+
+Bundle 'othree/javascript-libraries-syntax.vim'
+
+" javascript-libraries-syntax                    指定需要高亮的JS库
+let g:used_javascript_libs = 'jquery,requirejs,underscore,backbone,angularjs,angularui,angularuirouter,react,flux,handlebars'
+
 Bundle 'othree/html5.vim'
 Bundle 'hail2u/vim-css3-syntax'
-Bundle 'ekalinin/Dockerfile.vim'
+Bundle 'cakebaker/scss-syntax.vim'
+Bundle 'groenewege/vim-less'
+Bundle 'tpope/vim-surround'
 
+Bundle 'skammer/vim-css-color'
+" g:cssColorVimDoNotMessMyUpdatetime is used when updatetime value set by plugin (100ms) is interfering with your configuration
+let g:cssColorVimDoNotMessMyUpdatetime = 1
+
+Bundle 'ekalinin/Dockerfile.vim'
+Bundle 'evanmiller/nginx-vim-syntax'
+
+Bundle 'exu/pgsql.vim'
+let g:sql_type_default = 'pgsql'
+
+" 安装补全插件
+" ---------- 补全命令 ----------
+"
+" Ctrl + P                   --缓冲区补全             [插入模式]
+" Ctrl + U                   --全能补全               [插入模式]
+" Tab键                      --语法结构补全           [插入模式] [snipMate插件]
+" Ctrl + Y + ,               --HTML标签补全           [插入模式] [emmet插件]
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+Bundle 'garbas/vim-snipmate'
+" Optional:
+Bundle 'honza/vim-snippets'
+
+
+
+" \il                        --显示/关闭对齐线        [Normal模式可用]
 Bundle 'Yggdroot/indentLine'
 " indentLine          显示对齐线
 let g:indentLine_enabled    = 0                " 默认关闭
@@ -66,6 +135,10 @@ let g:indentLine_color_gui  = '#A4E57E'        " 设置GUI线条颜色
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
 "......................................
+
+" 加载pathogen插件管理器
+execute pathogen#infect()
+
 filetype plugin indent on
 "
 " Brief help
@@ -101,6 +174,20 @@ set softtabstop=4
 au FileType scala,clojure,elixir,eelixir,scheme,racket,newlisp,lisp,lua,ruby,eruby,julia,dart,elm,coffee,ls,slim,jade,sh,html,js set shiftwidth=2
 au FileType scala,clojure,elixir,eelixir,scheme,racket,newlisp,lisp,lua,ruby,eruby,julia,dart,elm,coffee,ls,slim,jade,sh,html,js set tabstop=2
 au FileType scala,clojure,elixir,eelixir,scheme,racket,newlisp,lisp,lua,ruby,eruby,julia,dart,elm,coffee,ls,slim,jade,sh,html,js set softtabstop=2
+
+" 针对部分语言加减指定字符的单词属性
+au FileType clojure        set iskeyword-=.
+au FileType clojure        set iskeyword-=>
+au FileType perl,php       set iskeyword-=.
+au FileType perl,php       set iskeyword-=$
+au FileType perl,php       set iskeyword-=-
+au FileType ruby           set iskeyword+=!
+au FileType ruby           set iskeyword+=?
+au FileType css,scss,less  set iskeyword+=.
+au FileType css,scss,less  set iskeyword+=#
+au FileType css,scss,less  set iskeyword+=-
+au FileType nginx          set iskeyword-=/
+au FileType nginx          set iskeyword-=.
 
 " 根据后缀名指定文件类型
 au BufRead,BufNewFile *.h        setlocal ft=c
@@ -140,8 +227,8 @@ set foldmethod=indent        " 选择代码折叠类型
 set foldlevel=100            " 禁止自动折叠
 set laststatus=2             " 开启状态栏信息
 "set cmdheight=2              " 命令行的高度，默认为1，这里设为2
-"set nobackup                 " 不生成备份文件
-"set noswapfile               " 不生成交换文件
+set nobackup                 " 不生成备份文件
+set noswapfile               " 不生成交换文件
 set list                      "显示特殊字符，其中Tab使用高亮~代替，尾部空白使用高亮点号代替
 set listchars=tab:\~\ ,trail:.
 set expandtab                "将Tab自动转化成空格 [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
@@ -202,8 +289,119 @@ nnoremap <leader>t : tabe<CR>
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
 
+" Ctrl + ]            多选择跳转
+nmap <c-]> g<c-]>
+vmap <c-]> g<c-]>
+
+" Ctrl + H            光标移当前行行首[插入模式]、切换左窗口[Normal模式]
+imap <c-h> <esc>I
+" map <c-h> <c-w><c-h>
+
+" Ctrl + J            光标移下一行行首[插入模式]、切换下窗口[Normal模式]
+imap <c-j> <esc><down>I
+" map <c-j> <c-w><c-j>
+
+" Ctrl + K            光标移上一行行尾[插入模式]、切换上窗口[Normal模式]
+imap <c-k> <esc><up>A
+" map <c-k> <c-w><c-k>
+
+" Ctrl + L            光标移当前行行尾[插入模式]、切换右窗口[Normal模式]
+imap <c-l> <esc>A
+" map <c-l> <c-w><c-l>
+
+" Alt  + H            光标左移一格
+imap <m-h> <left>
+
+" Alt  + J            光标下移一格
+imap <m-j> <down>
+
+" Alt  + K            光标上移一格
+imap <m-k> <up>
+
+" Alt  + L            光标右移一格
+imap <m-l> <right>
+
+" \c                  复制至公共剪贴板
+vmap <leader>c "+y
+
+" \a                  复制所有至公共剪贴板
+nmap <leader>a <esc>ggVG"+y<esc>
+
+" \v                  从公共剪贴板粘贴
+imap <leader>v <esc>"+p
+nmap <leader>v "+p
+vmap <leader>v "+p
+
+" \rb                 一键去除所有尾部空白
+imap <leader>rb <esc>:let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
+nmap <leader>rb :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
+vmap <leader>rb <esc>:let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
+
+" \rm                 一键去除字符
+imap <leader>rm <esc>:%s/<c-v><c-m>//g<cr>
+nmap <leader>rm :%s/<c-v><c-m>//g<cr>
+vmap <leader>rm <esc>:%s/<c-v><c-m>//g<cr>
+
+" \rt                 一键替换全部Tab为空格
+func! RemoveTabs()
+    if &shiftwidth == 2
+        exec '%s/   /  /g'
+    elseif &shiftwidth == 4
+        exec '%s/   /    /g'
+    elseif &shiftwidth == 6
+        exec '%s/   /      /g'
+    elseif &shiftwidth == 8
+        exec '%s/   /        /g'
+    else
+        exec '%s/   / /g'
+    end
+endfunc
+
+imap <leader>rt <esc>:call RemoveTabs()<cr>
+nmap <leader>rt :call RemoveTabs()<cr>
+vmap <leader>rt <esc>:call RemoveTabs()<cr>
+
+" \ra                 一键清理当前代码文件
+nmap <leader>ra <esc>\rt<esc>\rb<esc>gg=G<esc>gg<esc>
+
+" \ev                 编辑当前所使用的Vim配置文件
+nmap <leader>ev <esc>:e $MYVIMRC<cr>
+
+" \php                一键切换到PHP语法高亮
+imap <leader>php <esc>:se ft=php<cr>li
+nmap <leader>php <esc>:se ft=php<cr>
+
+" \ruby                一键切换到Ruby语法高亮
+imap <leader>ruby <esc>:se ft=ruby<cr>li
+nmap <leader>ruby <esc>:se ft=ruby<cr>
+
+" \eruby                一键切换到eRuby语法高亮
+imap <leader>eruby <esc>:se ft=eruby<cr>li
+nmap <leader>eruby <esc>:se ft=eruby<cr>
+
+" \js                 一键切换到JavaScript语法高亮
+imap <leader>js <esc>:se ft=javascript<cr>li
+nmap <leader>js <esc>:se ft=javascript<cr>
+
+" \css                一键切换到CSS语法高亮
+imap <leader>css <esc>:se ft=css<cr>li
+nmap <leader>css <esc>:se ft=css<cr>
+
+" \html               一键切换到HTML语法高亮
+imap <leader>html <esc>:se ft=html<cr>li
+nmap <leader>html <esc>:se ft=html<cr>
+
+
 " \il                 显示/关闭对齐线 [indentLine插件]
 nmap <leader>il :IndentLinesToggle<cr>
+
+" \bb                 按=号对齐代码 [Tabular插件]
+nmap <leader>bb :Tab /=<cr>
+" \bn                 自定义对齐    [Tabular插件]
+nmap <leader>bn :Tab /
+
+" Ctrl + U            简化全能补全按键
+imap <c-u> <c-x><c-o>
 
 "conf for plugins {{ 插件相关的配置
 "状态栏的配置 
