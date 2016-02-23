@@ -288,20 +288,33 @@ nmap <c-]> g<c-]>
 vmap <c-]> g<c-]>
 
 " Ctrl + H            光标移当前行行首[插入模式]、切换左窗口[Normal模式]
-imap <c-h> <esc>I
+" imap <c-h> <esc>I
 " map <c-h> <c-w><c-h>
 
 " Ctrl + J            光标移下一行行首[插入模式]、切换下窗口[Normal模式]
-imap <c-j> <esc><down>I
+" imap <c-j> <esc><down>I
 " map <c-j> <c-w><c-j>
 
 " Ctrl + K            光标移上一行行尾[插入模式]、切换上窗口[Normal模式]
-imap <c-k> <esc><up>A
+" imap <c-k> <esc><up>A
 " map <c-k> <c-w><c-k>
 
 " Ctrl + L            光标移当前行行尾[插入模式]、切换右窗口[Normal模式]
-imap <c-l> <esc>A
+" imap <c-l> <esc>A
 " map <c-l> <c-w><c-l>
+
+" Alt  + H            光标左移一格
+" imap <m-h> <left>
+
+" Alt  + J            光标下移一格
+" imap <m-j> <down>
+
+" Alt  + K            光标上移一格
+" imap <m-k> <up>
+
+" Alt  + L            光标右移一格
+" imap <m-l> <right>
+
 
 " \c                  复制至公共剪贴板
 vmap <leader>c "+y
