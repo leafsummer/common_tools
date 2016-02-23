@@ -35,10 +35,33 @@ let g:airline_powerline_fonts = 0              " 关闭自定义字体
 let g:airline#extensions#tabline#enabled = 1   "automatically displays all buffers when there's only one tab open
 let g:airline#extensions#whitespace#enabled = 0 "enable/disable detection of whitespace errors
 let g:airline#extensions#tabline#buffer_nr_show = 1 "configure whether buffer numbers should be shown
+
+Bundle 'hdima/python-syntax'
+
+Bundle 'godlygeek/tabular'
+" \bb                 按=号对齐代码 [Tabular插件]
+nmap <leader>bb :Tab /=<cr>
+" \bn                 自定义对齐    [Tabular插件]
+nmap <leader>bn :Tab /
+
+Bundle 'plasticboy/vim-markdown'
+Bundle 'elzr/vim-json'
+Bundle 'jason0x43/vim-js-indent'
+Bundle 'pangloss/vim-javascript'
+Bundle 'othree/html5.vim'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'ekalinin/Dockerfile.vim'
+
+Bundle 'Yggdroot/indentLine'
+" indentLine          显示对齐线
+let g:indentLine_enabled    = 0                " 默认关闭
+let g:indentLine_char       = '┆'             " 设置对齐线字符
+let g:indentLine_color_term = 239              " 设置非GUI线条颜色
+let g:indentLine_color_gui  = '#A4E57E'        " 设置GUI线条颜色
+
 "..................................
 " vim-scripts repos
 "
-
 "..................................
 " non github repos
 " Bundle 'git://git.wincent.com/command-t.git'
@@ -65,7 +88,7 @@ set autoindent              "自动对齐
 set ai!                     "设置自动缩进
 set smartindent             "智能自动缩进
 
-set cindent                                                                                                                                  
+set cindent
 set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
 
 set bs=2                    "在insert模式下用退格键删除
@@ -122,6 +145,7 @@ set laststatus=2             " 开启状态栏信息
 set list                      "显示特殊字符，其中Tab使用高亮~代替，尾部空白使用高亮点号代替
 set listchars=tab:\~\ ,trail:.
 set expandtab                "将Tab自动转化成空格 [需要输入真正的Tab键时，使用 Ctrl+V + Tab]
+set cursorline               " 高亮突出当前行
 filetype indent on           " 针对不同的文件类型采用不同的缩进格式
 filetype plugin on           " 针对不同的文件类型加载对应的插件
 filetype plugin indent on    " 启用自动补全
@@ -133,6 +157,24 @@ set fileencodings=utf-8,gbk,cp936,latin-1
 set fileformat=unix
 set fileformats=unix,mac,dos
 "}}
+
+" 开启部分语法高亮的非默认特性
+let g:cpp_class_scope_highlight           = 1  " 高亮C++ class scope
+let g:cpp_experimental_template_highlight = 1  " 高亮C++ template functions
+let g:go_auto_type_info                   = 0  " 关闭Go语言自动显示类型信息
+"[默认就是关闭的，此处用于方便需要时开启]
+let g:go_def_mapping_enabled              = 0  " 关闭Go语言对gd的绑定
+let g:go_highlight_operators              = 1  " 开启Go语言操作符高亮
+let g:go_highlight_functions              = 1  " 开启Go语言函数名高亮
+let g:go_highlight_methods                = 1  " 开启Go语言方法名高亮
+let g:go_highlight_structs                = 1  " 开启Go语言结构体名高亮
+let g:haskell_enable_quantification       = 1  " 开启Haskell高亮 forall
+let g:haskell_enable_recursivedo          = 1  " 开启Haskell高亮 mdo and rec
+let g:haskell_enable_arrowsyntax          = 1  " 开启Haskell高亮 proc
+let g:haskell_enable_pattern_synonyms     = 1  " 开启Haskell高亮 pattern
+let g:haskell_enable_typeroles            = 1  " 开启Haskell高亮 type roles
+let g:haskell_enable_static_pointers      = 1  " 开启Haskell高亮 static
+let g:python_highlight_all                = 1  " 开启Python的所有高亮
 
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
 let mapleader = ',' 
@@ -149,6 +191,7 @@ set showmode
 "set guifont=PowerlineSymbols\ for\ Powerline
 "set nocompatible
 
+" ======= 自定义快捷键 ======= "
 "conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
 let mapleader = ',' 
 nnoremap <C-l> gt
@@ -158,6 +201,9 @@ nnoremap <leader>t : tabe<CR>
 "设置切换Buffer快捷键"
 nnoremap <C-N> :bn<CR>
 nnoremap <C-P> :bp<CR>
+
+" \il                 显示/关闭对齐线 [indentLine插件]
+nmap <leader>il :IndentLinesToggle<cr>
 
 "conf for plugins {{ 插件相关的配置
 "状态栏的配置 
