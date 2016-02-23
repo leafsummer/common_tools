@@ -309,18 +309,6 @@ imap <c-k> <esc><up>A
 imap <c-l> <esc>A
 " map <c-l> <c-w><c-l>
 
-" Alt  + H            光标左移一格
-imap <m-h> <left>
-
-" Alt  + J            光标下移一格
-imap <m-j> <down>
-
-" Alt  + K            光标上移一格
-imap <m-k> <up>
-
-" Alt  + L            光标右移一格
-imap <m-l> <right>
-
 " \c                  复制至公共剪贴板
 vmap <leader>c "+y
 
@@ -333,12 +321,12 @@ nmap <leader>v "+p
 vmap <leader>v "+p
 
 " \rb                 一键去除所有尾部空白
-imap <leader>rb <esc>:let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
+"imap <leader>rb <esc>:let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 nmap <leader>rb :let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 vmap <leader>rb <esc>:let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 
 " \rm                 一键去除字符
-imap <leader>rm <esc>:%s/<c-v><c-m>//g<cr>
+"imap <leader>rm <esc>:%s/<c-v><c-m>//g<cr>
 nmap <leader>rm :%s/<c-v><c-m>//g<cr>
 vmap <leader>rm <esc>:%s/<c-v><c-m>//g<cr>
 
@@ -357,7 +345,7 @@ func! RemoveTabs()
     end
 endfunc
 
-imap <leader>rt <esc>:call RemoveTabs()<cr>
+"imap <leader>rt <esc>:call RemoveTabs()<cr>
 nmap <leader>rt :call RemoveTabs()<cr>
 vmap <leader>rt <esc>:call RemoveTabs()<cr>
 
