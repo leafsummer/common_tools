@@ -106,18 +106,16 @@ Bundle 'exu/pgsql.vim'
 let g:sql_type_default = 'pgsql'
 
 " 安装补全插件
-" ---------- 补全命令 ----------
-"
-" Ctrl + P                   --缓冲区补全             [插入模式]
-" Ctrl + U                   --全能补全               [插入模式]
-" Tab键                      --语法结构补全           [插入模式] [snipMate插件]
-" Ctrl + Y + ,               --HTML标签补全           [插入模式] [emmet插件]
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
+Bundle 'SirVer/ultisnips'
 " Optional:
 Bundle 'honza/vim-snippets'
-
+let g:UltiSnipsSnippetDirectories=['UltiSnips']
+let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+let g:UltiSnipsUsePythonVersion = 2
+let g:UltiSnipsExpandTrigger = '<tab>'
+let g:UltiSnipsListSnippets = '<c-tab>'
+let g:UltiSnipsJumpForwardTrigger = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 
 " \il                        --显示/关闭对齐线        [Normal模式可用]
@@ -394,9 +392,6 @@ nmap <leader>il :IndentLinesToggle<cr>
 nmap <leader>bb :Tab /=<cr>
 " \bn                 自定义对齐    [Tabular插件]
 nmap <leader>bn :Tab /
-
-" Ctrl + U            简化全能补全按键
-imap <c-u> <c-x><c-o>
 
 "conf for plugins {{ 插件相关的配置
 "状态栏的配置 
