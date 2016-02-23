@@ -1,4 +1,13 @@
 import time
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+# -----------------------------------------------------
+#  FileName    :   prime.py 
+#  Author      :    wuqingfeng@
+#  Date        :    2016-02-23
+# -----------------------------------------------------
+
 # import math
 
 # a = 4000000
@@ -53,7 +62,7 @@ if __name__ == "__main__":
 	mroot = n ** 0.5
 	half = len(s)
 
-	i = 0
+        i = 0
 	m = 3
 	# print 's:', s
 	while m <= mroot:
