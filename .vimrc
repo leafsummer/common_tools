@@ -335,25 +335,6 @@ vmap <leader>rb <esc>:let _s=@/<bar>:%s/\s\+$//e<bar>:let @/=_s<bar>:nohl<cr>
 nmap <leader>rm :%s/<c-v><c-m>//g<cr>
 vmap <leader>rm <esc>:%s/<c-v><c-m>//g<cr>
 
-" \rt                 一键替换全部Tab为空格
-func! RemoveTabs()
-    if &shiftwidth == 2
-        exec '%s/   /  /g'
-    elseif &shiftwidth == 4
-        exec '%s/   /    /g'
-    elseif &shiftwidth == 6
-        exec '%s/   /      /g'
-    elseif &shiftwidth == 8
-        exec '%s/   /        /g'
-    else
-        exec '%s/   / /g'
-    end
-endfunc
-
-"imap <leader>rt <esc>:call RemoveTabs()<cr>
-nmap <leader>rt :call RemoveTabs()<cr>
-vmap <leader>rt <esc>:call RemoveTabs()<cr>
-
 " \ra                 一键清理当前代码文件
 nmap <leader>ra <esc>\rt<esc>\rb<esc>gg=G<esc>gg<esc>
 
