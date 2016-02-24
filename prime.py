@@ -75,7 +75,7 @@ if __name__ == "__main__":
             j += m
             while j < half:
                 s[j] = 0
-                    j += m
+                j += m
 
             i += 1
             m = 2*i+3
