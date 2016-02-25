@@ -376,6 +376,12 @@ nmap <leader>bb :Tab /=<cr>
 " \bn                 自定义对齐    [Tabular插件]
 nmap <leader>bn :Tab /
 
+" 调整分割窗口大小
+nmap w= :resize +3<cr>
+nmap w- :resize -3<cr>
+nmap w, :vertical resize -3<cr>
+nmap w. :vertical resize +3<cr>
+
 "conf for plugins {{ 插件相关的配置
 "状态栏的配置 
 "powerline{
