@@ -365,6 +365,8 @@ nmap <leader>css <esc>:se ft=css<cr>
 imap <leader>html <esc>:se ft=html<cr>li
 nmap <leader>html <esc>:se ft=html<cr>
 
+" 复制到剪切板
+vmap <c-c> "+y
 
 " \il                 显示/关闭对齐线 [indentLine插件]
 nmap <leader>il :IndentLinesToggle<cr>
