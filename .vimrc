@@ -312,6 +312,11 @@ vmap <c-]> g<c-]>
 
 " Alt  + L            光标右移一格
 " imap <m-l> <right>
+"插入模式移动
+inoremap <C-e> <END>
+inoremap <C-a> <HOME>
+inoremap <C-f> <Right>
+inoremap <C-b> <Left>
 
 
 " \c                  复制至公共剪贴板
