@@ -211,8 +211,8 @@ set backspace=2              " 设置退格键可用
 set nu!                      "显示行号
 set autoread                 "文件在Vim之外修改过，自动重新读入
 set ruler                    "右下角显示光标位置的状态行
-"set relativenumber           " 开启相对行号
-"set mouse=a
+"set relativenumber          " 开启相对行号
+set mouse=a                  " 开启用鼠标控制光标
 "set ignorecase              "检索时忽略大小写
 set incsearch                "开启实时搜索功能
 set nowrapscan               "搜索到文件两端时不重新搜索
