@@ -49,7 +49,7 @@ DISABLE_AUTO_UPDATE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git httpie celery django pip python virtualenv virtual envwrapper colored-man colorize github brew osx zsh-syntax-high lighting z zsh_stats command-not-found compleat copydir copyfile cp tmux tmuxinator urltools safe-paste encode64)
 
 # User configuration
 
@@ -86,7 +86,8 @@ source $ZSH/oh-my-zsh.sh
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-
+alias grep="grep --color=auto"
+alias reload="source $HOME/.zshrc"
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
