@@ -1,3 +1,23 @@
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+;;设置窗口位置为屏库左上角(0,0)
+(set-frame-position (selected-frame) 100 0)
+;;设置宽和高,我的十寸小本是110,33,大家可以调整这个参数来适应自己屏幕大小
+(set-frame-width (selected-frame) 120)
+(set-frame-height (selected-frame) 40)
+
+(package-initialize)
+
+(package-initialize)
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
 (defconst *spell-check-support-enabled* nil) ;; Enable with t if you prefer

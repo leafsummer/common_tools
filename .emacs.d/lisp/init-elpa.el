@@ -23,10 +23,10 @@
   (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
 
 ;;; Also use Melpa for most packages
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/"))
-
-
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+;(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+;(add-to-list 'package-archives '("popkit" . "http://elpa.popkit.org/packages/"))
 ;; If gpg cannot be found, signature checking will fail, so we
 ;; conditionally enable it according to whether gpg is available. We
 ;; re-run this check once $PATH has been configured
