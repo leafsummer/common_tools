@@ -258,6 +258,15 @@ au FileType scheme,racket,newlisp,lisp,clojure :inoremap ' '
 au FileType scheme,racket,newlisp,lisp,clojure :inoremap ` `
 au FileType scheme,racket,newlisp,lisp,clojure :inoremap * **<esc>i
 
+" 自定义闭合匹配函数
+function ClosePair(char)
+    if getline('.')[col('.') - 1] == a:char
+        return ''
+    else
+        return a:char
+    endif
+endf
+
 " 开启部分语法高亮的非默认特性
 let g:cpp_class_scope_highlight           = 1  " 高亮C++ class scope
 let g:cpp_experimental_template_highlight = 1  " 高亮C++ template functions
