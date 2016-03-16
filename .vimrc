@@ -243,6 +243,21 @@ set fileformat=unix
 set fileformats=unix,mac,dos
 "}}
 
+" ======= 引号 && 括号自动匹配 ======= "
+
+:inoremap ( ()<esc>i
+:inoremap ) <c-r>=ClosePair(')')<cr>
+:inoremap { {}<esc>i
+:inoremap } <c-r>=ClosePair('}')<cr>
+:inoremap [ []<esc>i
+:inoremap ] <c-r>=ClosePair(']')<cr>
+:inoremap " ""<esc>i
+:inoremap ' ''<esc>i
+:inoremap ` ``<esc>i
+au FileType scheme,racket,newlisp,lisp,clojure :inoremap ' '
+au FileType scheme,racket,newlisp,lisp,clojure :inoremap ` `
+au FileType scheme,racket,newlisp,lisp,clojure :inoremap * **<esc>i
+
 " 开启部分语法高亮的非默认特性
 let g:cpp_class_scope_highlight           = 1  " 高亮C++ class scope
 let g:cpp_experimental_template_highlight = 1  " 高亮C++ template functions
