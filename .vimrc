@@ -105,7 +105,7 @@ Bundle 'evanmiller/nginx-vim-syntax'
 Bundle 'exu/pgsql.vim'
 let g:sql_type_default = 'pgsql'
 
-" 安装补全插件
+" 安装补全插件, snips
 Bundle 'SirVer/ultisnips'
 " Optional:
 Bundle 'honza/vim-snippets'
@@ -125,6 +125,13 @@ let g:indentLine_enabled    = 0                " 默认关闭
 let g:indentLine_char       = '┆'             " 设置对齐线字符
 let g:indentLine_color_term = 239              " 设置非GUI线条颜色
 let g:indentLine_color_gui  = '#A4E57E'        " 设置GUI线条颜色
+
+" 搜索插件
+Bundle 'dyng/ctrlsf.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
+
+" sublime 多行修改插件
+Bundle 'terryma/vim-multiple-cursors' 
 
 "..................................
 " vim-scripts repos
