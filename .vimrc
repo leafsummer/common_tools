@@ -133,6 +133,17 @@ Bundle 'ctrlpvim/ctrlp.vim'
 " sublime 多行修改插件
 Bundle 'terryma/vim-multiple-cursors' 
 
+" easymotion 跳转插件
+Bundle 'easymotion/vim-easymotion'
+let g:EasyMotion_smartcase = 1
+"let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+map <Leader><leader>h <Plug>(easymotion-linebackward)
+map <Leader><Leader>j <Plug>(easymotion-j)
+map <Leader><Leader>k <Plug>(easymotion-k)
+map <Leader><leader>l <Plug>(easymotion-lineforward)
+" 重复上一次操作, 类似repeat插件, 很强大
+map <Leader><leader>. <Plug>(easymotion-repeat)
+
 "..................................
 " vim-scripts repos
 "
@@ -292,11 +303,6 @@ let g:haskell_enable_typeroles            = 1  " 开启Haskell高亮 type roles
 let g:haskell_enable_static_pointers      = 1  " 开启Haskell高亮 static
 let g:python_highlight_all                = 1  " 开启Python的所有高亮
 
-"conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
-let mapleader = ',' 
-nnoremap <C-l> gt
-nnoremap <C-h> gT
-nnoremap <leader>t : tabe<CR>
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
@@ -309,8 +315,8 @@ nnoremap <C-h> gT
 nnoremap <leader>t : tabe<CR>
 
 "设置切换Buffer快捷键"
-nnoremap <C-N> :bn<CR>
-nnoremap <C-P> :bp<CR>
+nnoremap [b :bn<CR>
+nnoremap ]b :bp<CR>
 
 " Ctrl + ]            多选择跳转
 nmap <c-]> g<c-]>
