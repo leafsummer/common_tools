@@ -13,8 +13,13 @@ fi
 bash <(curl -s https://nixos.org/nix/install)
 source ~/.nix-profile/etc/profile.d/nix.sh
 
-for file in .zshrc .bashrc ; do if [ -e "~/$file" ]; then
+for file in .zshrc .bashrc
+do 
+  echo "$file"
+  if [ -e ~/$file ]; then
+    #echo 'write the profile'
     echo 'source ~/.nix-profile/etc/profile.d/nix.sh' >> "$file"
-fi;
+  fi
+done
 
 CURL_CA_BUNDLE=$(find /nix -name ca-bundle.crt |tail -n 1) nix-channel --update
