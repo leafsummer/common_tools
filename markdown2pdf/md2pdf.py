@@ -6,10 +6,10 @@ from weasyprint import HTML
 from markdown2 import markdown_path
 
 
-def convert_md_2_pdf(filename, output=None, theme=None):
-    html = markdown_path(filename)
+def convert_md_2_pdf(filepath, output=None, theme=None):
+    html = markdown_path(filepath)
     if not output:
-        output = '.'.join([filename.rsplit('.')[0], 'pdf'])
+        output = '.'.join([filepath.rsplit('.')[0], 'pdf'])
     print 'output file:', output
     if theme is not None:
         BASE_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -25,9 +25,9 @@ def convert_md_2_pdf(filename, output=None, theme=None):
 
 def main():
     parser = argparse.ArgumentParser(description='Convert markdown file to pdf')
-    parser.add_argument('filepath', help='Markdown file path')
-    parser.add_argument('--theme', help='Set the theme, default is GitHub flavored.', default='github')
-    parser.add_argument('--output', help='The output file path. If not set, '
+    parser.add_argument('-f', '--filepath', help='Markdown file path')
+    parser.add_argument('-t', '--theme', help='Set the theme, default is GitHub flavored.', default='github')
+    parser.add_argument('-o', '--output', help='The output file path. If not set, '
                         'the name will be same as the input file but with ".pdf" in current dir.')
     args = parser.parse_args()
     convert_md_2_pdf(**dict(args._get_kwargs()))
