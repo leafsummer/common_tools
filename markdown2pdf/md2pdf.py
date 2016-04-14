@@ -8,8 +8,11 @@ from markdown2 import markdown_path
 
 def convert_md_2_pdf(filepath, output=None, theme=None):
     html = markdown_path(filepath)
-    if not output:
+    if output and os.path.isdir(output):
+        output = '.'.join([output, filepath.rsplit('.')[0], 'pdf'])
+    else:
         output = '.'.join([filepath.rsplit('.')[0], 'pdf'])
+
     print 'output file:', output
     if theme is not None:
         BASE_DIR = os.path.abspath(os.path.dirname(__file__))
