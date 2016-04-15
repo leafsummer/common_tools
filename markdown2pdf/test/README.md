@@ -95,7 +95,7 @@ Accept: application/vnd.heroku+json; version=3
 
 在 `PUT`/`PATCH`/`POST` 请求的正文（request bodies）中使用JSON格式数据，而不是使用 form 表单形式的数据。这与我们使用JSON格式返回请求相对应，例如:
 
-```sh
+```bash
 $ curl -X POST https://service.com/apps \
     -H "Content-Type: application/json" \
     -d '{"name": "demoapp"}'
@@ -150,7 +150,7 @@ service_class: "first"
 
 在某些情况下，让用户提供ID去定位资源是不方便的。例如，一个用户想取得他在Heroku平台app信息，但是这个app的唯一标识是UUID。这种情况下，你应该支持接口通过名字和ID都能访问，例如:
 
-```
+```bash
 $ curl https://service.com/apps/{app_id_or_name}
 $ curl https://service.com/apps/97addcf0-c182
 $ curl https://service.com/apps/www-prod
@@ -205,7 +205,7 @@ $ curl https://service.com/apps/www-prod
 请求，例如:
 
 
-```sh
+```bash
 $ curl -X DELETE \  
   https://service.com/apps/1f9b/domains/0fd4
 
@@ -222,7 +222,7 @@ Content-Type: application/json;charset=utf-8
 
 当请求状态码为202时，不返回所有可用资源，例如：
 
-```sh
+```bash
 $ curl -X DELETE \  
   https://service.com/apps/1f9b/dynos/05bd
 
