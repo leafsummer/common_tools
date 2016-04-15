@@ -95,7 +95,7 @@ Accept: application/vnd.heroku+json; version=3
 
 在 `PUT`/`PATCH`/`POST` 请求的正文（request bodies）中使用JSON格式数据，而不是使用 form 表单形式的数据。这与我们使用JSON格式返回请求相对应，例如:
 
-```
+```bash
 $ curl -X POST https://service.com/apps \
     -H "Content-Type: application/json" \
     -d '{"name": "demoapp"}'
@@ -205,7 +205,7 @@ $ curl https://service.com/apps/www-prod
 请求，例如:
 
 
-```json
+```bash
 $ curl -X DELETE \  
   https://service.com/apps/1f9b/domains/0fd4
 
@@ -222,7 +222,7 @@ Content-Type: application/json;charset=utf-8
 
 当请求状态码为202时，不返回所有可用资源，例如：
 
-```
+```bash
 $ curl -X DELETE \  
   https://service.com/apps/1f9b/dynos/05bd
 
