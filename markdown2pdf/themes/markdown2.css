@@ -1,16 +1,17 @@
 @import url(http://fonts.googleapis.com/css?family=Vollkorn:400,400italic,700,700italic&subset=latin);
 
 html, body {
-        padding:1em;
+        margin: 0px
+        padding: 0px;
         margin:auto;
-        max-width:42em;
         background:#fefefe;
     }
 body {
-    font: 1.3em "Vollkorn", Palatino, Times;
+    font: 12px "Vollkorn", Palatino, Times;
     color: #333;
     line-height: 1.4;
     text-align: justify;
+    height: 100%;
     }
 header, nav, article, footer {
     width: 700px;
@@ -109,6 +110,23 @@ p#heart{
 .red {
     color:#B50000;
     }
+
+pre {
+  border: 1px solid #cacaca;
+  line-height: 1.2em;
+  font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+  padding: 10px;
+  overflow:auto;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  background-color: #FAFAFB;
+  color: #393939;
+  margin: 0px;
+}
 
 /* Home Page
 --------------------------- */
