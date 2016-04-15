@@ -38,10 +38,13 @@ def convert_md_2_html(filepath, output=None, theme=None, codecss=None):
         </style>
     </head>
     <body>
+    <div>
     """
 
     html += markdown_path(filepath, extras=["code-friendly", "fenced-code-blocks"])
-    html + = """</body>
+    html + = """
+        </div>
+        </body>
     </html>
     """
     if output and os.path.isdir(output):
@@ -57,7 +60,7 @@ def main():
     parser = argparse.ArgumentParser(description='Convert markdown file to pdf')
     parser.add_argument('-f', '--filepath', help='Markdown file path')
     parser.add_argument('-t', '--theme', help='Set the theme, default is GitHub flavored.', default='github')
-    parser.add_argument('-cc', '--codecss', help='Set the code css, default is pygments default css.', default='default')
+    parser.add_argument('-cc', '--codecss', help='Set the code css, default is pygments friendly css.', default='friendly')
     parser.add_argument('-o', '--output', help='The output file path. If not set, '
                         'the name will be same as the input file but with ".pdf" in current dir.')
     args = parser.parse_args()
