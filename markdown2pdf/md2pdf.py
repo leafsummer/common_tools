@@ -6,7 +6,7 @@ from weasyprint import HTML
 from markdown2 import markdown_path
 
 
-def convert_md_2_pdf(filepath, output=None, theme=None， codecss=None):
+def convert_md_2_pdf(filepath, output=None, theme=None, codecss=None):
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
     html = markdown_path(filepath, extras=["code-friendly", "fenced-code-blocks"])
     css_file_list = []
