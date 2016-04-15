@@ -31,9 +31,10 @@ def convert_md_2_html(filepath, output=None, theme=None, codecss=None):
             codecss_file = os.path.join(BASE_DIR, 'pygments-css/'+codecss+'.css')
         print 'code_css', codecss_file
         with open(codecss_file) as code_css_in:
-            code_css_html = code_css_in.read    
+            code_css_html = code_css_in.read()
     else:
         code_css_html = ''
+    html += code_css_html
     html += """
         </style>
     </head>
@@ -41,7 +42,7 @@ def convert_md_2_html(filepath, output=None, theme=None, codecss=None):
     """
 
     html += markdown_path(filepath, extras=["code-friendly", "fenced-code-blocks"])
-    html + = """</body>
+    html += """</body>
     </html>
     """
     if output and os.path.isdir(output):
@@ -51,7 +52,7 @@ def convert_md_2_html(filepath, output=None, theme=None, codecss=None):
 
     print 'output file:', output_file
     with open(output_file, 'w') as output_html:
-        output_html.write(html)
+        output_html.write(html.encode('utf-8'))
 
 def main():
     parser = argparse.ArgumentParser(description='Convert markdown file to pdf')
