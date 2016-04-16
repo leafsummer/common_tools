@@ -50,11 +50,12 @@ def convert_md_2_html(filepath, output=None, theme=None, codecss=None):
     </html>
     """
     if output and os.path.isdir(output):
-        output_file = '.'.join([output, filepath.rsplit('.')[0], 'html'])
+        output_file = os.path.join(output, '.'.join([os.path.basename(filepath).rsplit('.', 1)[0], 'html']))
+    elif output is None:
+        output_file = '.'.join([os.path.basename(filepath).rsplit('.', 1)[0], 'html'])
     else:
-        output_file = '.'.join([filepath.rsplit('.')[0], 'html'])
-
-    print 'output file:', output_file
+        output_file = output
+    print 'output file', output_file
     with open(output_file, 'w') as output_html:
         output_html.write(html.encode('utf-8'))
 
@@ -64,7 +65,7 @@ def main():
     parser.add_argument('-t', '--theme', help='Set the theme, default is GitHub flavored.', default='github')
     parser.add_argument('-cc', '--codecss', help='Set the code css, default is pygments friendly css.', default='friendly')
     parser.add_argument('-o', '--output', help='The output file path. If not set, '
-                        'the name will be same as the input file but with ".pdf" in current dir.')
+                        'the name will be same as the input file but with ".html" in current dir.')
     args = parser.parse_args()
     convert_md_2_html(**dict(args._get_kwargs()))
 

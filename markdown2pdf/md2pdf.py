@@ -11,9 +11,9 @@ def convert_md_2_pdf(filepath, output=None, theme=None, codecss=None):
     html = markdown_path(filepath, extras=["code-friendly", "fenced-code-blocks"])
     css_file_list = []
     if output and os.path.isdir(output):
-        output = '.'.join([output, filepath.rsplit('.')[0], 'pdf'])
-    else:
-        output = '.'.join([filepath.rsplit('.')[0], 'pdf'])
+        output = os.path.join(output, '.'.join([os.path.basename(filepath).rsplit('.', 1)[0], 'pdf']))
+    elif output is None:
+        output = '.'.join([filepath.rsplit('.', 1)[0], 'pdf'])
     if theme is not None:
         css_file = theme
         if not os.path.exists(css_file):
