@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font: 13px helvetica,arial,freesans,clean,sans-serif;
+  font: 17px PingFang SC,Hiragino Sans GB,Microsoft Yahei,WenQuanYi Micro Hei,sans-serif;;
   line-height: 1.4em;
   background-color: #fff;
   color: #393939;
@@ -21,7 +21,7 @@ p {
 }
 
 h1 {
-  font-size: 20px;
+  font-size: 29px;
   border-bottom: 1px solid #cccccc;
   padding: .5em 0;
   margin: 2em 0 1em;
@@ -32,7 +32,7 @@ h1:first-child {
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 22px;
   color: #333;
   margin: 2em auto 1em;
 }
@@ -47,17 +47,17 @@ h2 span.step {
 }
 
 h3 {
-  font-size: 14px;
+  font-size: 19px;
   color: #333;
   margin: 1.5em 0 .5em;
 }
 
 h5 {
-  font-size: 13px;
+  font-size: 18px;
 }
 
 h6 {
-  font-size: 13px;
+  font-size: 17px;
   color: #666;
 }
 
@@ -72,13 +72,16 @@ a:active {
 }
 
 blockquote {
-  margin:0 -5px;
-  padding: 0px 20px;
+  margin:0 0 20px;
+  padding: 10px 15px;
+  border-left-width: 8px;
+  border-left-style: solid;
+  border-color: #D6DBDF;
 }
 
 ul,
 ol {
-  margin: 0px;
+  margin: 0 0 10px 25px;
   padding: 0px;
 }
 
@@ -512,7 +515,7 @@ div.sidebar-module ul ul li span {
 .content dl code,
 .content ul code,
 p code {
-  font: 12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
+  font: 17px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;
   color: #52595d;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
