@@ -9,11 +9,11 @@ if [ -d "~/.vimrc" ]; then
 fi
 
 curl -fsLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+cp -r $INSTALL_DIR/colors/ ~/.vim/
 cp $INSTALL_DIR/vimrc ~/.vimrc
 
 vim +PlugInstall
 
-cp -r colors ~/.vim/
 
 #sed -i '/colorscheme/s/^" //' ~/.vimrc
-#sed -i '/autocmd/s/^" //' ~/.vimrc
+sed -i '/autocmd/s/^" //' ~/.vimrc

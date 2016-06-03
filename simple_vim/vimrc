@@ -29,15 +29,20 @@ let g:solarized_hitrail = 1
 colorscheme Tomorrow-Night-Eighties
 let g:airline_theme='badwolf'
 let g:airline_powerline_fonts=0
-autocmd VimEnter * AirlineTheme solarized
+" autocmd VimEnter * AirlineTheme solarized
 " let g:airline#extensions#tabline#enabled=1
 
 
 " Others
+highlight Normal ctermfg=grey ctermbg=black
+let g:python_highlight_all = 1
 let g:rainbow_active = 1
 set laststatus=2
-highlight Normal ctermfg=grey ctermbg=black
-set fileformats=unix,dos
+set fenc=utf-8
+set encoding=utf-8
+set fileencodings=utf-8,gbk,cp936,latin-1
+set fileformat=unix
+set fileformats=unix,mac,dos
 set nowrap
 set nobackup
 set history=1000
@@ -52,6 +57,72 @@ set cindent
 set smartindent
 set smarttab
 set incsearch
+set nowrapscan
 set backspace=2
-set pastetoggle=<f3>
+set pastetoggle=<F2>
+set showmode
+set autoread
+set mouse=n
+set autochdir
+set foldmethod=indent
+set foldlevel=100
+set noswapfile
+set list
+set listchars=tab:\-\ ,trail:.
+set hidden
+set autochdir
+set hls
+filetype indent on
+filetype plugin on
+filetype plugin indent on
 au FileType python let b:delimitMate_nesting_quotes = ['"']
+
+" 对部分语言设置单独的缩进
+au FileType scala,clojure,elixir,eelixir,scheme,racket,newlisp,lisp,lua,ruby,eruby,julia,dart,elm,coffee,ls,slim,jade,sh,html,js set shiftwidth=2
+au FileType scala,clojure,elixir,eelixir,scheme,racket,newlisp,lisp,lua,ruby,eruby,julia,dart,elm,coffee,ls,slim,jade,sh,html,js set tabstop=2
+au FileType scala,clojure,elixir,eelixir,scheme,racket,newlisp,lisp,lua,ruby,eruby,julia,dart,elm,coffee,ls,slim,jade,sh,html,js set softtabstop=2
+
+" 针对部分语言加减指定字符的单词属性
+au FileType clojure        set iskeyword-=.
+au FileType clojure        set iskeyword-=>
+au FileType perl,php       set iskeyword-=.
+au FileType perl,php       set iskeyword-=$
+au FileType perl,php       set iskeyword-=-
+au FileType ruby           set iskeyword+=!
+au FileType ruby           set iskeyword+=?
+au FileType css,scss,less  set iskeyword+=.
+au FileType css,scss,less  set iskeyword+=#
+au FileType css,scss,less  set iskeyword+=-
+au FileType nginx          set iskeyword-=/
+au FileType nginx          set iskeyword-=.
+
+" 根据后缀名指定文件类型
+au BufRead,BufNewFile *.h        setlocal ft=c
+au BufRead,BufNewFile *.i        setlocal ft=c
+au BufRead,BufNewFile *.m        setlocal ft=objc
+au BufRead,BufNewFile *.di       setlocal ft=d
+au BufRead,BufNewFile *.ss       setlocal ft=scheme
+au BufRead,BufNewFile *.lsp      setlocal ft=newlisp
+au BufRead,BufNewFile *.cl       setlocal ft=lisp
+au BufRead,BufNewFile *.phpt     setlocal ft=php
+au BufRead,BufNewFile *.inc      setlocal ft=php
+au BufRead,BufNewFile *.sql      setlocal ft=mysql
+au BufRead,BufNewFile *.tpl      setlocal ft=smarty
+au BufRead,BufNewFile *.txt      setlocal ft=txt
+au BufRead,BufNewFile *.log      setlocal ft=conf
+au BufRead,BufNewFile hosts      setlocal ft=conf
+au BufRead,BufNewFile *.conf     setlocal ft=dosini
+au BufRead,BufNewFile http*.conf setlocal ft=apache
+au BufRead,BufNewFile nginx.conf setlocal ft=nginx
+au BufRead,BufNewFile *.ini      setlocal ft=dosini
+
+" ======= 自定义快捷键 ======= "
+"conf for tabs, 为标签页进行的配置，通过ctrl h/l切换标签等
+let mapleader = ',' 
+nnoremap <C-l> gt
+nnoremap <C-h> gT
+nnoremap <leader>t : tabe<CR>
+
+"设置切换Buffer快捷键"
+nnoremap [b :bn<CR>
+nnoremap ]b :bp<CR>
