@@ -15,5 +15,5 @@ cp $INSTALL_DIR/vimrc ~/.vimrc
 vim +PlugInstall
 
 
-#sed -i '/colorscheme/s/^" //' ~/.vimrc
+sed -i '/colorscheme solarized/s/^" //' ~/.vimrc
 sed -i '/autocmd/s/^" //' ~/.vimrc
