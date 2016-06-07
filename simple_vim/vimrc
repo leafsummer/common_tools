@@ -26,7 +26,8 @@ let g:solarized_visibility = 'high'
 let g:solarized_contrast = 'high'
 let g:solarized_hitrail = 1
 " colorscheme solarized
-colorscheme Tomorrow-Night-Eighties
+" colorscheme Tomorrow-Night
+colorscheme molokai
 let g:airline_theme='badwolf'
 let g:airline_powerline_fonts=0
 " autocmd VimEnter * AirlineTheme solarized
