@@ -15,7 +15,7 @@ Plug 'Raimondi/delimitMate'
 call plug#end()
 
 " Solarized Dark
-" set background=dark
+set background=dark
 set t_Co=256
 set t_Sb=^[[4%dm
 set t_Sf=^[[3%dm]]]]
@@ -35,7 +35,8 @@ let g:airline_powerline_fonts=0
 
 
 " Others
-highlight Normal ctermfg=grey ctermbg=black
+" highlight Normal ctermfg=grey ctermbg=black
+highlight Normal ctermfg=251
 let g:python_highlight_all = 1
 let g:rainbow_active = 1
 set laststatus=2
