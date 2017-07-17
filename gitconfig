@@ -1,0 +1,22 @@
+[user]
+	name = xxxx
+	email = xxxx@b.cn
+[credential]
+	helper = store
+[core]
+	editor = vim
+[alias]
+    glog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[merge]
+	conflictStyle = diff3
+[push]
+	default = simple
+    followTags = true
+[status]
+	showUntrackedFiles = all
+[diff]
+      tool = icdiff
+[difftool]
+      prompt = false
+[difftool "icdiff"]
+      cmd = /opt/workplace/pyenv/shims/icdiff --line-numbers $LOCAL $REMOTE
