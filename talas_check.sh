@@ -22,7 +22,7 @@ DBWORKER=${DBWORKER}" distributed-storage-slave-1-6-31-236"
 DBWORKER=${DBWORKER}" distributed-storage-slave-2-6-31-237"
 DBWORKER=${DBWORKER}" distributed-storage-slave-3-6-31-238"
 
-TALAS_HOME="/opt/PaaS/Talas"
+TALAS_HOME="/opt/PaaS/"
 
 #
 # add environments
