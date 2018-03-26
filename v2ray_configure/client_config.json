@@ -10,7 +10,8 @@
       "auth": "noauth",
       "udp": false,
       "ip": "127.0.0.1"
-    }
+    },
+    "domainOverride": ["http", "tls"]
   },
   "outbound": {
     "protocol": "vmess",
