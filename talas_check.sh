@@ -10,10 +10,10 @@ KAFKA_TOPICS="PaaS.Streaming.Message.Entry PaaS.Streaming.Message.Bus PaaS.Strea
 
 SPARK_MASTER="10.6.24.5"
 #SPARK_SLAVERS="10.5.24.202 10.5.24.203 10.5.24.204 10.5.24.205"
-SPARK_SLAVERS="distributed-computing-master-6-24-5.lab.intra.nsfocus.com"
-SPARK_SLAVERS=${SPARK_SLAVERS}" distributed-computing-slave-1-6-24-6.lab.intra.nsfocus.com"
-SPARK_SLAVERS=${SPARK_SLAVERS}" distributed-computing-slave-2-6-24-7.lab.intra.nsfocus.com"
-SPARK_SLAVERS=${SPARK_SLAVERS}" distributed-computing-slave-3-6-24-8.lab.intra.nsfocus.com"
+SPARK_SLAVERS="distributed-computing-master-6-24-5"
+SPARK_SLAVERS=${SPARK_SLAVERS}" distributed-computing-slave-1-6-24-6"
+SPARK_SLAVERS=${SPARK_SLAVERS}" distributed-computing-slave-2-6-24-7"
+SPARK_SLAVERS=${SPARK_SLAVERS}" distributed-computing-slave-3-6-24-8"
 
 DBMASTER="10.6.31.239"
 #DBWORKER="10.6.31.239 10.6.31.238 10.6.31.237 10.6.31.236"
@@ -22,7 +22,7 @@ DBWORKER=${DBWORKER}" distributed-storage-slave-1-6-31-236"
 DBWORKER=${DBWORKER}" distributed-storage-slave-2-6-31-237"
 DBWORKER=${DBWORKER}" distributed-storage-slave-3-6-31-238"
 
-TALAS_HOME="/opt/PaaS/Talas"
+TALAS_HOME="/opt/PaaS/TALAS"
 
 #
 # add environments
