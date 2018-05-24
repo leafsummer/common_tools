@@ -334,6 +334,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
   (global-set-key [?\C-x ?\C-/] 'comment-or-uncomment-region)
   (global-set-key (kbd "C-x p") 'prev-window)
+  (define-key key-translation-map (kbd "C-z") (kbd "M-_"))
   (windmove-default-keybindings)
   (setq windmove-wrap-around t)
   )
