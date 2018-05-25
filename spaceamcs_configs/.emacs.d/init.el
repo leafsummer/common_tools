@@ -31,5 +31,7 @@
   (configuration-layer/sync)
   (spacemacs-buffer/display-startup-note)
   (spacemacs/setup-startup-hook)
+  (require 'indent-guide)
+  (indent-guide-global-mode)
   (require 'server)
   (unless (server-running-p) (server-start)))
