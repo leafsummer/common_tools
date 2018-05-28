@@ -246,7 +246,7 @@ values."
    ;; If non nil show the color guide hint for transient state keys. (default t)
    dotspacemacs-show-transient-state-color-guide t
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols t
+   dotspacemacs-mode-line-unicode-symbols nil
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
@@ -334,6 +334,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
   (global-set-key [?\C-x ?\C-/] 'comment-or-uncomment-region)
   (global-set-key (kbd "C-x p") 'prev-window)
+  (global-set-key [drag-mouse-0] 'mouse-set-region)
   (define-key key-translation-map (kbd "C-z") (kbd "M-_"))
   (windmove-default-keybindings)
   (setq windmove-wrap-around t)
