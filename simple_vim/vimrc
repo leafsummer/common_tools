@@ -94,7 +94,7 @@ set autochdir
 set foldmethod=indent
 set foldlevel=100
 set noswapfile
-set list
+" set list
 set listchars=tab:\-\ ,trail:.
 set hidden
 set autochdir

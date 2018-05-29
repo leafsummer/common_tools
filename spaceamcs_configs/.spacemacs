@@ -327,10 +327,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
         ("org-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
         ("gnu-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
-  (setq indent-tabs-mode nil)
-  (setq-default tab-width 4)
-  (setq require-final-newline nil)
-  (my-setup-indent 4)
   (global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
   (global-set-key [?\C-x ?\C-/] 'comment-or-uncomment-region)
   (global-set-key (kbd "C-x p") 'prev-window)
@@ -347,6 +343,11 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
+  (my-setup-indent 4)
+  (setq-default python-indent 4)
+  (setq require-final-newline nil)
   (clean-aindent-mode -1)
   )
 
