@@ -17,10 +17,11 @@ Plug 'honza/vim-snippets'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plugin 'Valloric/YouCompleteMe'
 call plug#end()
 
-set rtp+=/opt/workplace/fzf
+" set rtp+=/opt/workplace/fzf
 " Solarized Dark
 set background=dark
 "set t_Co=256
@@ -48,11 +49,21 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " If you want :UltiSnipsEdit to split your window.
 let g:UltiSnipsEditSplit="vertical"
 
+silent! nmap <F3> :NERDTreeToggle<CR>
+silent! map <F4> :NERDTreeFind<CR>
+let NERDTreeShowBookmarks=1
+let g:NERDTreeWinSize=20
+let NERDTreeShowHidden=1
+" let NERDTreeShowLineNumbers=1
+let NERDTreeAutoCenter=1
+let g:nerdtree_tabs_open_on_console_startup=1
+let NERDTreeIgnore=['\.pyc','\~$','\.swp']
+
 " Others
 " highlight Normal ctermfg=grey ctermbg=black
 highlight Normal ctermfg=251
-let g:python_highlight_all = 1
-let g:rainbow_active = 1
+let g:python_highlight_all=1
+let g:rainbow_active=1
 set laststatus=2
 set fenc=utf-8
 set encoding=utf-8
@@ -142,3 +153,5 @@ nnoremap <leader>t : tabe<CR>
 "设置切换Buffer快捷键"
 nnoremap [b :bn<CR>
 nnoremap ]b :bp<CR>
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
