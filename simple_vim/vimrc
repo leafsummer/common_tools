@@ -33,9 +33,9 @@ let g:solarized_termtrans=1
 let g:solarized_visibility = 'high'
 let g:solarized_contrast = 'high'
 let g:solarized_hitrail = 1
-colorscheme solarized
+" colorscheme solarized
 " colorscheme Tomorrow-Night
-" colorscheme molokai
+colorscheme monokai
 let g:airline_theme='badwolf'
 let g:airline_powerline_fonts=0
 "autocmd VimEnter * AirlineTheme solarized
@@ -58,6 +58,8 @@ let NERDTreeShowHidden=1
 let NERDTreeAutoCenter=1
 let g:nerdtree_tabs_open_on_console_startup=1
 let NERDTreeIgnore=['\.pyc','\~$','\.swp']
+
+imap <C-a> <C-x><C-o>
 
 " Others
 " highlight Normal ctermfg=grey ctermbg=black
