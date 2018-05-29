@@ -31,6 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     yaml
      go
      html
      python
@@ -332,6 +333,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (global-set-key (kbd "C-x p") 'prev-window)
   (global-set-key [drag-mouse-0] 'mouse-set-region)
   (define-key key-translation-map (kbd "C-z") (kbd "M-_"))
+  (define-key key-translation-map (kbd "<f5>") (kbd "C-c @ C-c"))
   (windmove-default-keybindings)
   (setq windmove-wrap-around t)
   )
