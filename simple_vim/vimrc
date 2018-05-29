@@ -11,28 +11,42 @@ Plug 'godlygeek/tabular'
 Plug 'luochen1990/rainbow'
 Plug 'plasticboy/vim-markdown'
 Plug 'Raimondi/delimitMate'
-
+Plug 'rking/ag.vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'}
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+" Plugin 'Valloric/YouCompleteMe'
 call plug#end()
 
+set rtp+=/opt/workplace/fzf
 " Solarized Dark
 set background=dark
-set t_Co=256
+"set t_Co=256
 set t_Sb=^[[4%dm
 set t_Sf=^[[3%dm]]]]
-let g:solarized_termcolors=256
+"let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 " let g:solarized_degrade=1
 let g:solarized_visibility = 'high'
 let g:solarized_contrast = 'high'
 let g:solarized_hitrail = 1
-" colorscheme solarized
+colorscheme solarized
 " colorscheme Tomorrow-Night
 " colorscheme molokai
 let g:airline_theme='badwolf'
 let g:airline_powerline_fonts=0
-" autocmd VimEnter * AirlineTheme solarized
+"autocmd VimEnter * AirlineTheme solarized
 " let g:airline#extensions#tabline#enabled=1
+" Trigger configuration. Do not use <tab> if you use
+" https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " Others
 " highlight Normal ctermfg=grey ctermbg=black
@@ -45,7 +59,7 @@ set encoding=utf-8
 set fileencodings=utf-8,gbk,cp936,latin-1
 set fileformat=unix
 set fileformats=unix,mac,dos
-set nowrap
+set wrap
 set nobackup
 set history=1000
 set nu
