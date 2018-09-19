@@ -247,7 +247,7 @@ values."
    ;; If non nil show the color guide hint for transient state keys. (default t)
    dotspacemacs-show-transient-state-color-guide t
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
-   dotspacemacs-mode-line-unicode-symbols nil
+   dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
    ;; scrolling overrides the default behavior of Emacs which recenters point
    ;; when it reaches the top or bottom of the screen. (default t)
@@ -328,12 +328,16 @@ before packages are loaded. If you are unsure, you should try in setting them in
         '(("melpa-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
         ("org-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/org/")
         ("gnu-cn" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")))
+  (setq indent-tabs-mode nil)
+  (setq-default tab-width 4)
+  (setq require-final-newline nil)
+  (setq-default kill-whole-line t)
+  (my-setup-indent 4)
   (global-set-key [remap comment-or-uncomment-region] 'my-comment-or-uncomment-region)
   (global-set-key [?\C-x ?\C-/] 'comment-or-uncomment-region)
   (global-set-key (kbd "C-x p") 'prev-window)
-  (global-set-key [drag-mouse-0] 'mouse-set-region)
+  (global-set-key [f3] 'hs-toggle-hiding)
   (define-key key-translation-map (kbd "C-z") (kbd "M-_"))
-  (define-key key-translation-map (kbd "<f5>") (kbd "C-c @ C-c"))
   (windmove-default-keybindings)
   (setq windmove-wrap-around t)
   )
@@ -345,11 +349,6 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
-  (setq-default indent-tabs-mode nil)
-  (setq-default tab-width 4)
-  (my-setup-indent 4)
-  (setq-default python-indent 4)
-  (setq require-final-newline nil)
   (clean-aindent-mode -1)
   )
 
