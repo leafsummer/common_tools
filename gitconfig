@@ -1,15 +1,21 @@
 [user]
-	name = xxxx
-	email = xxxx@b.cn
+	name = 邬庆峰
+	email = wuqingfeng@b.360.cn
 [credential]
 	helper = store
 [core]
 	editor = vim
 [alias]
     glog = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-    ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+	ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+	switch = !legit switch
+	sync = !legit sync
+	publish = !legit publish
+	unpublish = !legit unpublish
+	undo = !legit undo
+	branches = !legit branches
 [merge]
-	conflictStyle = diff3
+	conflictstyle = diff3
 [push]
 	default = simple
     followTags = true
@@ -21,3 +27,5 @@
       prompt = false
 [difftool "icdiff"]
       cmd = /opt/workplace/pyenv/shims/icdiff --line-numbers $LOCAL $REMOTE
+#[http]
+#	proxy = http://127.0.0.1:10801
