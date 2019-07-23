@@ -20,7 +20,7 @@ def convert_md_2_html(filepath, output=None, theme=None, codecss=None):
         if not os.path.exists(theme_css_file):
             theme_css_file = os.path.join(BASE_DIR, 'themes/'+theme+'.css')
 
-        print 'theme_css:', theme_css_file
+        print('theme_css:', theme_css_file)
         with open(theme_css_file) as theme_css_in:
             theme_css_html = theme_css_in.read()
     else:
@@ -30,7 +30,7 @@ def convert_md_2_html(filepath, output=None, theme=None, codecss=None):
         codecss_file = codecss
         if not os.path.exists(codecss_file):
             codecss_file = os.path.join(BASE_DIR, 'pygments-css/'+codecss+'.css')
-        print 'code_css', codecss_file
+        print('code_css', codecss_file)
         with open(codecss_file) as code_css_in:
             code_css_html = code_css_in.read()
     else:
@@ -52,12 +52,12 @@ def convert_md_2_html(filepath, output=None, theme=None, codecss=None):
     if output and os.path.isdir(output):
         output_file = os.path.join(output, '.'.join([os.path.basename(filepath).rsplit('.', 1)[0], 'html']))
     elif output is None:
-        output_file = '.'.join([os.path.basename(filepath).rsplit('.', 1)[0], 'html'])
+        output_file = '.'.join([filepath.rsplit('.', 1)[0], 'html'])
     else:
         output_file = output
-    print 'output file', output_file
+    print('output file', output_file)
     with open(output_file, 'w') as output_html:
-        output_html.write(html.encode('utf-8'))
+        output_html.write(html)
 
 def main():
     parser = argparse.ArgumentParser(description='Convert markdown file to pdf')
