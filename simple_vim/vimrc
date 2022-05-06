@@ -1,3 +1,9 @@
+" neovim 可能需要安装pynvim，python3 -m pip install --user --upgrade pynvim (:checkhealth)
+" neovim 可以延用vim的配置
+" mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
+" ln -s ~/.vim $XDG_CONFIG_HOME/nvim
+" ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
+
 set nocompatible
 filetype off
 syntax enable
@@ -14,9 +20,10 @@ Plug 'Raimondi/delimitMate'
 Plug 'rking/ag.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'}
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'nsf/gocode', { 'rtp': 'vim', 'do': '~/.vim/plugged/gocode/vim/symlink.sh'}
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plugin 'Valloric/YouCompleteMe'
 call plug#end()
@@ -27,12 +34,13 @@ set background=dark
 "set t_Co=256
 set t_Sb=^[[4%dm
 set t_Sf=^[[3%dm]]]]
-"let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+let g:go_version_warning = 0
+" let g:solarized_termcolors=256
+" let g:solarized_termtrans=1
 " let g:solarized_degrade=1
-let g:solarized_visibility = 'high'
-let g:solarized_contrast = 'high'
-let g:solarized_hitrail = 1
+" let g:solarized_visibility = 'high'
+" let g:solarized_contrast = 'high'
+" let g:solarized_hitrail = 1
 " colorscheme solarized
 " colorscheme Tomorrow-Night
 colorscheme monokai
