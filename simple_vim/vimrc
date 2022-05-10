@@ -1,9 +1,3 @@
-" neovim 可能需要安装pynvim，python3 -m pip install --user --upgrade pynvim (:checkhealth)
-" neovim 可以延用vim的配置
-" mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
-" ln -s ~/.vim $XDG_CONFIG_HOME/nvim
-" ln -s ~/.vimrc $XDG_CONFIG_HOME/nvim/init.vim
-
 set nocompatible
 filetype off
 syntax enable
@@ -25,6 +19,11 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-telescope/telescope-fzf-native.nvim', {'run': 'make'}
 " Plugin 'Valloric/YouCompleteMe'
 call plug#end()
 
