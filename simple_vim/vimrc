@@ -5,8 +5,8 @@ syntax on
 call plug#begin('~/.vim/plugged')
 
 Plug 'altercation/vim-colors-solarized'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
 Plug 'godlygeek/tabular'
 Plug 'luochen1990/rainbow'
 Plug 'plasticboy/vim-markdown'
@@ -37,6 +37,9 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'rafamadriz/friendly-snippets'
 Plug 'onsails/lspkind-nvim'
 Plug 'voldikss/vim-floaterm'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'akinsho/bufferline.nvim'
+Plug 'b3nj5m1n/kommentary'
 " Plugin 'Valloric/YouCompleteMe'
 call plug#end()
 
